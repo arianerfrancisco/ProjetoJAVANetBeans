@@ -5,15 +5,18 @@
  */
 package Interface;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Ariane
  */
 public class Principal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Principal
-     */
+    String nome;
+    String End;
+    String Tel;
+        
     public Principal() {
         initComponents();
     }
@@ -33,65 +36,74 @@ public class Principal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jbnovo = new javax.swing.JButton();
+        jbenviar = new javax.swing.JButton();
+        jblimpar = new javax.swing.JButton();
+        jbfechar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro de Clientes");
+        setAlwaysOnTop(true);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        getContentPane().setLayout(null);
+        setSize(new java.awt.Dimension(80, 80));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jtnome.setEnabled(false);
         jtnome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtnomeActionPerformed(evt);
             }
         });
-        getContentPane().add(jtnome);
-        jtnome.setBounds(60, 60, 170, 20);
-        getContentPane().add(jtend);
-        jtend.setBounds(60, 110, 170, 20);
-        getContentPane().add(jttelefone);
-        jttelefone.setBounds(60, 160, 170, 20);
+        getContentPane().add(jtnome, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 170, -1));
+
+        jtend.setEnabled(false);
+        getContentPane().add(jtend, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 170, -1));
+
+        jttelefone.setEnabled(false);
+        getContentPane().add(jttelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 170, -1));
 
         jLabel1.setText("Nome:");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(60, 40, 31, 14);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
 
         jLabel2.setText("Endereço:");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(60, 90, 49, 14);
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, -1, -1));
 
         jLabel3.setText("Telefone:");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(60, 140, 60, 14);
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 60, -1));
 
-        jButton1.setText("Novo ");
-        getContentPane().add(jButton1);
-        jButton1.setBounds(60, 210, 61, 23);
-
-        jButton2.setText("Enviar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jbnovo.setText("Novo ");
+        jbnovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jbnovoActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2);
-        jButton2.setBounds(160, 210, 63, 23);
+        getContentPane().add(jbnovo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, -1));
 
-        jButton3.setText("Limpar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jbenviar.setText("Enviar");
+        jbenviar.setEnabled(false);
+        jbenviar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jbenviarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3);
-        jButton3.setBounds(60, 250, 63, 20);
+        getContentPane().add(jbenviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, -1, -1));
 
-        jButton4.setText("Fechar");
-        getContentPane().add(jButton4);
-        jButton4.setBounds(160, 250, 65, 23);
+        jblimpar.setText("Limpar");
+        jblimpar.setEnabled(false);
+        jblimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jblimparActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jblimpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, -1, 20));
+
+        jbfechar.setText("Fechar");
+        jbfechar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbfecharActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jbfechar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -100,13 +112,37 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtnomeActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void jbenviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbenviarActionPerformed
+     nome = jtnome.getText();
+     End = jtend.getText();
+     Tel = jttelefone.getText();
+     
+     JOptionPane.showMessageDialog(this, nome + "\n" + End + "\n" + Tel);
+     
+             
+    }//GEN-LAST:event_jbenviarActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jblimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jblimparActionPerformed
+        jtnome.setText("");
+        jtend.setText("");
+        jttelefone.setText("");
+        
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jblimparActionPerformed
+
+    private void jbnovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbnovoActionPerformed
+        jtnome.setEnabled(true);
+        jtend.setEnabled(true);
+        jttelefone.setEnabled(true);
+        
+        jbenviar.setEnabled(true);
+        jblimpar.setEnabled(true);
+      
+    }//GEN-LAST:event_jbnovoActionPerformed
+
+    private void jbfecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbfecharActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jbfecharActionPerformed
 
     /**
      * @param args the command line arguments
@@ -144,13 +180,13 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton jbenviar;
+    private javax.swing.JButton jbfechar;
+    private javax.swing.JButton jblimpar;
+    private javax.swing.JButton jbnovo;
     private javax.swing.JTextField jtend;
     private javax.swing.JTextField jtnome;
     private javax.swing.JTextField jttelefone;
